@@ -1,0 +1,26 @@
+{
+  "name": "react-native-material-design-styles",
+  "description": "Material Design styles for React Native",
+  "main": "index.js",
+  "authors": [
+    "Ben Zhao"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "react-native",
+    "material-design",
+    "style"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "paper-styles": "PolymerElements/paper-styles#^1.0.0"
+  }
+}
