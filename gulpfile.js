@@ -11,7 +11,9 @@ gulp.task('clean', function () {
 
 gulp.task('babel', ['clean'], function () {
     return gulp.src('src/*.js')
-        .pipe(babel())
+        .pipe(babel({
+            presets: ['es2015']
+        }))
         .pipe(gulp.dest('dist'));
 });
 
