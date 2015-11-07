@@ -13,6 +13,7 @@
   ],
   "author": "Ben Zhao",
   "license": "MIT",
+  "repository": "binggg/react-native-material-design-styles",
   "devDependencies": {
     "del": "^2.0.2",
     "gulp": "^3.9.0",
