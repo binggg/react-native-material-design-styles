@@ -101,4 +101,4 @@ const typographyStyle = StyleSheet.create(typography);
 
 All color is show below, you can also [Watch in fullScreen](http://codepen.io/binggg/full/LpgJvY/) and you can copy color name.
 
-![allColor](./allColors.png)
+![allColor](./allColors.jpg)
