@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-material-design-styles",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Material Design styles for React Native",
   "main": "./dist/styles.js",
   "scripts": {
