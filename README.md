@@ -1,5 +1,7 @@
 # [React Native Material Design Styles](http://github.com/binggg/react-native-material-design-styles)
 
+[![npm](https://img.shields.io/npm/v/react-native-material-design-styles.svg)](https://www.npmjs.com/package/react-native-material-design-styles)
+
 React Native Material Design Styles is based on [paper-style](https://github.com/PolymerElements/paper-styles) which provides simple ways to use Material Design CSS styles in your application.　The difference is that this project is available in the form of React Native.
 
 **Recommend**
