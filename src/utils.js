@@ -28,6 +28,14 @@ export const htmlToReactStyle = function (fileContent, Text) {
                 if (Text[propCamel] === 'number') {
                     value = value.replace(/px|rem|em/g, '');
                 }
+                if(propCamel === 'fontFamily'){
+                    // React native (iOS) doesn't support multiple font families in the styles
+                    // Presumably because you ship fonts with the app.
+                    var fonts = value.split(',');
+                    if(fonts.length > 1){
+                        value = fonts[0];
+                    }
+                }
                 value = value.replace(/'/g, '');
                 if (!/[^0-9\-\.]/.test(value) && propCamel != 'fontWeight') {
                     value = Number(value);
@@ -52,7 +60,7 @@ export const colorToReactStyle = function (fileContent) {
 
         classObj[classNameCamel] = {};
 
-        if (value.indexOf('#') != -1) {
+        if (value && value.indexOf('#') != -1) {
             classObj[classNameCamel]['color'] = value;
         }
 

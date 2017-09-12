@@ -1,6 +1,6 @@
 'use strict';
 
-var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; })();
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -42,6 +42,14 @@ var htmlToReactStyle = exports.htmlToReactStyle = function htmlToReactStyle(file
                 if (Text[propCamel] === 'number') {
                     value = value.replace(/px|rem|em/g, '');
                 }
+                if (propCamel === 'fontFamily') {
+                    // React native (iOS) doesn't support multiple font families in the styles
+                    // Presumably because you ship fonts with the app.
+                    var fonts = value.split(',');
+                    if (fonts.length > 1) {
+                        value = fonts[0];
+                    }
+                }
                 value = value.replace(/'/g, '');
                 if (!/[^0-9\-\.]/.test(value) && propCamel != 'fontWeight') {
                     value = Number(value);
@@ -73,7 +81,7 @@ var colorToReactStyle = exports.colorToReactStyle = function colorToReactStyle(f
 
         classObj[classNameCamel] = {};
 
-        if (value.indexOf('#') != -1) {
+        if (value && value.indexOf('#') != -1) {
             classObj[classNameCamel]['color'] = value;
         }
 
